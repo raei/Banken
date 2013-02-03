@@ -1,16 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package bank;
+package lab3;
 
-/**
- *
- * @author raei
- */
 public class BankAccount {
     
-//instansvaribler
+    //instansvaribler
     private String ownerName; 
     private int balance;
     
@@ -21,6 +13,12 @@ public class BankAccount {
         this.balance = 0;        
     }
     
+    public BankAccount(String ownerName, int balance)
+    {
+        this.ownerName = ownerName;
+        this.balance = balance;        
+    }//end constructors
+    
     //metoder
     public boolean withdraw(int withdraw){
         boolean koll = false;
@@ -29,8 +27,7 @@ public class BankAccount {
             koll = true;
         }   
         return koll;        
-    }//end withdraw 
-    
+    }//end withdraw     
     
     public boolean deposit(int deposit){
         boolean koll = false;
@@ -47,7 +44,7 @@ public class BankAccount {
      
     public String getOwnerName(){
         return this.ownerName;
-    }
+    }//end getOwnername
     
     public int getBalance(){
         return  this.balance;
