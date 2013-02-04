@@ -14,8 +14,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
-import lab3.AddAccount;
-import lab3.BankAccount;
 
 public class SearchAccount extends JPanel{
     
@@ -121,7 +119,7 @@ public class SearchAccount extends JPanel{
         @Override
         public void actionPerformed(ActionEvent e) {
             try{
-                kontot = AddAccount.getAccount();
+                //kontot = AddAccount.getAccount();
                 int withdrawAmount = Integer.parseInt(txfWithdraw.getText());
                 if(kontot.withdraw(withdrawAmount)){
                      txfAccountBalance.setText("" +kontot.getBalance());
@@ -143,7 +141,7 @@ public class SearchAccount extends JPanel{
         @Override
         public void actionPerformed(ActionEvent e) {
            try{ 
-               kontot = AddAccount.getAccount();
+               //kontot = AddAccount.getAccount();
                int amount = Integer.parseInt(txfDeposit.getText());
                boolean koll = kontot.deposit(amount);
                if(koll == true){
@@ -162,13 +160,17 @@ public class SearchAccount extends JPanel{
     }//end DepositListener innerclass
 
     private class SerchListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             try{
-                kontot = AddAccount.getAccount();
-                txfAccountName.setText(kontot.getOwnerName());
-                txfAccountBalance.setText("" + kontot.getBalance());
+                String namn = txfSearch.getText();
+                kontot = AccountList.searchAccountInList(namn);
+                if(kontot != null){
+                    txfAccountName.setText(kontot.getOwnerName());
+                    txfAccountBalance.setText("" + kontot.getBalance());
+                }else{
+                    JOptionPane.showMessageDialog(null, "Kontot du sökte fanns ej"); 
+                }
             }catch(NullPointerException nex){
                 JOptionPane.showMessageDialog(null, "Du måste skapa ett konto först"); 
                 txfSearch.setText("");

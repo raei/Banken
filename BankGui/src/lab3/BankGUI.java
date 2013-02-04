@@ -2,9 +2,6 @@ package lab3;
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
-import lab3.AddAccount;
-import lab3.BankGUI;
-import lab3.SearchAccount;
 
 public class BankGUI extends JFrame{
     

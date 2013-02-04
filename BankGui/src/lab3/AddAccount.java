@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
-import lab3.BankAccount;
 
 public class AddAccount extends JPanel implements ActionListener{
     
@@ -62,9 +61,11 @@ public class AddAccount extends JPanel implements ActionListener{
         try{
             String userName = txfUserName.getText();
             int balance = Integer.parseInt(txfBalance.getText());
-            konto = new BankAccount(userName, balance);       
-            JOptionPane.showMessageDialog(null, "Konto skapat för " + konto.getOwnerName());
-        }catch(NumberFormatException nfe){
+            //konto = new BankAccount(userName, balance); 
+            AccountList.addAccountToList(new BankAccount(userName, balance));
+            
+            JOptionPane.showMessageDialog(null, "Konto skapat för " + userName);
+       }catch(NumberFormatException nfe){
              JOptionPane.showMessageDialog(null, "Du måste ange rätt datatyp " );
         }catch(Exception e){
              JOptionPane.showMessageDialog(null, "Något gick fel ");
