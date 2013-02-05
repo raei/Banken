@@ -29,4 +29,7 @@ public class AccountList {
         return hittatAccount;        
     }//end  searchAccountInList  
     
+    public static void removeAccountFromList(BankAccount konto){
+        kontoLista.remove(konto);
+    }
 }//end class

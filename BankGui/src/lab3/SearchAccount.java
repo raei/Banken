@@ -22,7 +22,7 @@ public class SearchAccount extends JPanel{
     private JTextField txfSearch, txfAccountName, txfAccountBalance, txfDeposit, txfWithdraw ;
     private JButton btnSearch, btnRemove, btnDeposit, btnWithdraw;
     private Border loweredbevel;
-    private BankAccount kontot;
+    private static BankAccount kontot;
     
     public SearchAccount(){
         this.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -50,9 +50,11 @@ public class SearchAccount extends JPanel{
         
         btnRemove = new JButton("Remove");
         btnRemove.setPreferredSize(new Dimension(100, 18));
+        btnRemove.addActionListener(new RemoveListener());
+        
         btnDeposit = new JButton("Deposit");
         btnDeposit.setPreferredSize(new Dimension(100, 18));
-        btnDeposit.addActionListener(new DepositLitener());
+        btnDeposit.addActionListener(new DepositListener());
         
         btnWithdraw = new JButton("Withdraw");
         btnWithdraw.setPreferredSize(new Dimension(100, 18));
@@ -115,6 +117,13 @@ public class SearchAccount extends JPanel{
         add(layoutPanel);//lägger till huvudpanelen        
     }//end constructor  
 
+    private static class RemoveListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           AccountList.removeAccountFromList(kontot);
+        }
+    }//end RemoveListener
+
     private class WithDrawListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -136,7 +145,7 @@ public class SearchAccount extends JPanel{
         }//end actionPerformed       
     }//end Withdrawlistener innerclass
 
-    private class DepositLitener implements ActionListener {
+    private class DepositListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
