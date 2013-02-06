@@ -22,7 +22,7 @@ public class SearchAccount extends JPanel{
     private JTextField txfSearch, txfAccountName, txfAccountBalance, txfDeposit, txfWithdraw ;
     private JButton btnSearch, btnRemove, btnDeposit, btnWithdraw;
     private Border loweredbevel;
-    private static BankAccount  ;
+    private static BankAccount actualAccount;
     
     public SearchAccount(){
         this.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -117,10 +117,20 @@ public class SearchAccount extends JPanel{
         add(layoutPanel);//lägger till huvudpanelen        
     }//end constructor  
 
-    private static class RemoveListener implements ActionListener {
+    private class RemoveListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-           AccountList.removeAccountFromList( );
+            //Ger en dialogruta för att kunna ångra sig
+           int n = JOptionPane.showConfirmDialog(null,
+                    "Would you like to delete " + actualAccount.getOwnerName() +  " account?",
+                    "Remove this account",
+                    JOptionPane.YES_NO_OPTION); 
+           if(n == JOptionPane.YES_OPTION){
+               AccountList.removeAccountFromList(actualAccount);
+               txfSearch.setText("");
+               txfAccountName.setText("");
+               txfAccountBalance.setText("");
+           }           
         }
     }//end RemoveListener
 
@@ -130,9 +140,9 @@ public class SearchAccount extends JPanel{
             try{
                 //kontot = AddAccount.getAccount();
                 int withdrawAmount = Integer.parseInt(txfWithdraw.getText());
-                if( .withdraw(withdrawAmount)){
-                     txfAccountBalance.setText("" + .getBalance());
-                    JOptionPane.showMessageDialog(null, "Du tog ut " + withdrawAmount + "\nDitt saldo är nu: " + .getBalance());   
+                if(actualAccount.withdraw(withdrawAmount)){
+                     txfAccountBalance.setText("" +actualAccount.getBalance());
+                    JOptionPane.showMessageDialog(null, "Du tog ut " + withdrawAmount + "\nDitt saldo är nu: " +actualAccount.getBalance());   
                 }else{
                     JOptionPane.showMessageDialog(null, "Uttag medges ej.\nGör ett nytt försök.");
                 }
@@ -152,10 +162,10 @@ public class SearchAccount extends JPanel{
            try{ 
                //kontot = AddAccount.getAccount();
                int amount = Integer.parseInt(txfDeposit.getText());
-               boolean koll =  .deposit(amount);
+               boolean koll = actualAccount.deposit(amount);
                if(koll == true){
-                   txfAccountBalance.setText("" + .getBalance());
-                   JOptionPane.showMessageDialog(null, "Du satt in " + amount + "\nDitt saldo är nu: " + .getBalance());               
+                   txfAccountBalance.setText("" +actualAccount.getBalance());
+                   JOptionPane.showMessageDialog(null, "Du satt in " + amount + "\nDitt saldo är nu: " +actualAccount.getBalance());               
                }else{
                    JOptionPane.showMessageDialog(null, "Gör ett nytt försök ");             
                }
@@ -173,10 +183,10 @@ public class SearchAccount extends JPanel{
         public void actionPerformed(ActionEvent e) {
             try{
                 String namn = txfSearch.getText();
-                  = AccountList.searchAccountInList(namn);
-                if(  != null){
-                    txfAccountName.setText( .getOwnerName());
-                    txfAccountBalance.setText("" +  .getBalance());
+                actualAccount = AccountList.searchAccountInList(namn);
+                if(actualAccount != null){
+                    txfAccountName.setText(actualAccount.getOwnerName());
+                    txfAccountBalance.setText("" + actualAccount.getBalance());
                 }else{
                     JOptionPane.showMessageDialog(null, "Kontot du sökte fanns ej"); 
                 }

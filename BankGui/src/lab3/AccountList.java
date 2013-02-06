@@ -1,6 +1,7 @@
 package lab3;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class AccountList {
     
@@ -30,6 +31,10 @@ public class AccountList {
     }//end  searchAccountInList  
     
     public static void removeAccountFromList(BankAccount konto){
-        kontoLista.remove(konto);
+        if(konto != null){
+            kontoLista.remove(konto);                 
+        }else{
+            JOptionPane.showMessageDialog(null, "Det gick inte att ta bort kontot");                    
+        }
     }
 }//end class
