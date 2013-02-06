@@ -8,7 +8,9 @@ public class BankTest {
         System.out.print("Konto status\n" + konto.toString());
         System.out.println("Ta ut 500kr");
         konto.withdraw(500);        
-        System.out.print("Konto status\n" + konto.toString());       
+        System.out.print("Konto status\n" + konto.toString()); 
+        
+        
         
     }//end main
 }//end class
