@@ -1,7 +1,5 @@
 package lab4;
 
-import lab3.*;
-
 public class BankAccount {
     
     //instansvaribler

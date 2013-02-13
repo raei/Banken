@@ -1,6 +1,5 @@
 package lab4;
 
-import lab3.*;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;

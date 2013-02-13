@@ -1,6 +1,5 @@
 package lab4;
 
-import lab3.*;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -14,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import lab4.BankAccount;
 
 public class AddAccount extends JPanel implements ActionListener{
     
