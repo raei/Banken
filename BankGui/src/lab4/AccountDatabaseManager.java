@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package lab4;
 
 import java.sql.Connection;
@@ -11,10 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author raei
- */
 public class AccountDatabaseManager {
     
     private static Statement stmt;
@@ -49,7 +41,8 @@ public class AccountDatabaseManager {
 		"Info", JOptionPane.ERROR_MESSAGE);
 }   }//end dialogBoxEvent
  
-    public static void addAccountToDb(String userName, int balance) {
+    public static void addAccountToDb(String userName, int balance) 
+    {
 	try {
 		makeConnectionDb(); 
 		String insertQuery = "INSERT INTO `userdbbank`.`bankaccount`(`UserName`,`Balance`) VALUES ('" +

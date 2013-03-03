@@ -117,7 +117,8 @@ public class SearchAccount extends JPanel{
         add(layoutPanel);//lägger till huvudpanelen        
     }//end constructor  
 
-    private class RemoveListener implements ActionListener {
+    private class RemoveListener implements ActionListener 
+    {
         @Override
         public void actionPerformed(ActionEvent e) {
             //Ger en dialogruta för att kunna ångra sig
@@ -134,7 +135,8 @@ public class SearchAccount extends JPanel{
         }
     }//end RemoveListener
 
-    private class WithDrawListener implements ActionListener {
+    private class WithDrawListener implements ActionListener 
+    {
         @Override
         public void actionPerformed(ActionEvent e) {
             try{
@@ -155,7 +157,8 @@ public class SearchAccount extends JPanel{
         }//end actionPerformed       
     }//end Withdrawlistener innerclass
 
-    private class DepositListener implements ActionListener {
+    private class DepositListener implements ActionListener 
+    {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -178,7 +181,8 @@ public class SearchAccount extends JPanel{
         }//end actionPerformed        
     }//end DepositListener innerclass
 
-    private class SerchListener implements ActionListener {
+    private class SerchListener implements ActionListener 
+    {
         @Override
         public void actionPerformed(ActionEvent e) {
             try{
