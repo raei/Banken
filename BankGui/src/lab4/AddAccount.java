@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
-import lab4.BankAccount;
 
 public class AddAccount extends JPanel implements ActionListener{
     
