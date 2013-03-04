@@ -63,7 +63,7 @@ public class AddAccount extends JPanel implements ActionListener{
             int balance = Integer.parseInt(txfBalance.getText());
             //konto = new BankAccount(userName, balance); 
            // AccountList.addAccountToList(new BankAccount(userName, balance));
-           
+           AccountDatabaseManager.addAccountToDb(userName, balance);
             
             JOptionPane.showMessageDialog(null, "Konto skapat för " + userName);
        }catch(NumberFormatException nfe){

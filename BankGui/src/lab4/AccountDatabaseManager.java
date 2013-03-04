@@ -15,16 +15,16 @@ public class AccountDatabaseManager {
     private static void makeConnectionDb()
     {
 	try { 
-		Class.forName("com.mysql.jdbc.Driver");
- 		String url ="jdbc:mysql://localhost:3306/userdbbank";
- 		con = DriverManager.getConnection(url,"root", "");
- 		stmt = con.createStatement();
+            Class.forName("com.mysql.jdbc.Driver");
+            String url ="jdbc:mysql://localhost:3306/userdbbank";
+            con = DriverManager.getConnection(url,"root", "");
+            stmt = con.createStatement();
  	}catch(SQLException sqle){
- 		dialogBoxEvent("SQL Exception " + sqle.toString(), 1); 
+            dialogBoxEvent("SQL Exception " + sqle.toString(), 1); 
  	}catch(ClassNotFoundException cnfe){
- 		dialogBoxEvent("Class not found Exception " + cnfe.toString(), 2); 
+            dialogBoxEvent("Class not found Exception " + cnfe.toString(), 2); 
  	}catch( Exception e ){
- 		dialogBoxEvent("Error " + e.toString(), 3); 
+            dialogBoxEvent("Error " + e.toString(), 3); 
  	}
     }//end makeConnectionDb
  
