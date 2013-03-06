@@ -128,6 +128,7 @@ public class SearchAccount extends JPanel{
                     JOptionPane.YES_NO_OPTION); 
            if(n == JOptionPane.YES_OPTION){
               // AccountList.removeAccountFromList(actualAccount);
+               AccountDatabaseManager.deleteAccount(actualAccount.getOwnerName());
                txfSearch.setText("");
                txfAccountName.setText("");
                txfAccountBalance.setText("");
@@ -144,6 +145,7 @@ public class SearchAccount extends JPanel{
                 int withdrawAmount = Integer.parseInt(txfWithdraw.getText());
                 if(actualAccount.withdraw(withdrawAmount)){
                      txfAccountBalance.setText("" +actualAccount.getBalance());
+                     AccountDatabaseManager.updateAccountBalance(actualAccount.getOwnerName(), actualAccount.getBalance());
                     JOptionPane.showMessageDialog(null, "Du tog ut " + withdrawAmount + "\nDitt saldo är nu: " +actualAccount.getBalance());   
                 }else{
                     JOptionPane.showMessageDialog(null, "Uttag medges ej.\nGör ett nytt försök.");
@@ -168,6 +170,7 @@ public class SearchAccount extends JPanel{
                boolean koll = actualAccount.deposit(amount);
                if(koll == true){
                    txfAccountBalance.setText("" +actualAccount.getBalance());
+                   AccountDatabaseManager.updateAccountBalance(actualAccount.getOwnerName(), actualAccount.getBalance());
                    JOptionPane.showMessageDialog(null, "Du satt in " + amount + "\nDitt saldo är nu: " +actualAccount.getBalance());               
                }else{
                    JOptionPane.showMessageDialog(null, "Gör ett nytt försök ");             
@@ -188,6 +191,7 @@ public class SearchAccount extends JPanel{
             try{
                 String namn = txfSearch.getText();
                 //actualAccount = AccountList.searchAccountInList(namn);
+                actualAccount = AccountDatabaseManager.searchAccountInDb(namn);
                 if(actualAccount != null){
                     txfAccountName.setText(actualAccount.getOwnerName());
                     txfAccountBalance.setText("" + actualAccount.getBalance());

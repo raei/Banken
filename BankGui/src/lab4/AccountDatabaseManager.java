@@ -60,7 +60,7 @@ public class AccountDatabaseManager {
     {
             try {
                     makeConnectionDb(); 
-                    String deleteQuery = "DELETE FROM `bankaccount` WHERE `UserName` = '"+ 			userName +"'";
+                    String deleteQuery = "DELETE FROM `bankaccount` WHERE `UserName` = '"+ userName +"'";
                     int row = stmt.executeUpdate(deleteQuery);
                     dialogBoxEvent("Antal rader som togs bort " + row, 1);
                     stmt.close();
@@ -93,7 +93,7 @@ public class AccountDatabaseManager {
 
             try {
                     makeConnectionDb(); 
-                    String searchQuery = "SELECT `UserName`, `Balance` FROM `bankaccount` WHERE 				(`UserName` = '" + userName +"')";
+                    String searchQuery = "SELECT `UserName`, `Balance` FROM `bankaccount` WHERE(`UserName` = '" + userName +"')";
                     ResultSet result =  stmt.executeQuery(searchQuery); 
                     while (result.next()) { 
                             namn = result.getString("UserName");
