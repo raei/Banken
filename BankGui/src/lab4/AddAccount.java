@@ -60,7 +60,7 @@ public class AddAccount extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent ev) {        
         try{
             String userName = txfUserName.getText();
-            int balance = Integer.parseInt(txfBalance.getText());
+            int balance = Integer.valueOf(txfBalance.getText());
             //konto = new BankAccount(userName, balance); 
            // AccountList.addAccountToList(new BankAccount(userName, balance));
            AccountDatabaseManager.addAccountToDb(userName, balance);

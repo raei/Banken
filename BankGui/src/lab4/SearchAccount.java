@@ -39,6 +39,7 @@ public class SearchAccount extends JPanel{
         lbWithdraw = new JLabel("Withdraw:");
         //build texfields        
         txfSearch = new JTextField(15);
+        txfSearch.setText("");
         txfAccountName = new JTextField(15);
         txfAccountBalance = new JTextField(15);
         txfDeposit = new JTextField(15);
@@ -161,7 +162,6 @@ public class SearchAccount extends JPanel{
 
     private class DepositListener implements ActionListener 
     {
-
         @Override
         public void actionPerformed(ActionEvent e) {
            try{ 

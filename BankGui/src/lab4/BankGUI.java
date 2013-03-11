@@ -16,6 +16,13 @@ public class BankGUI extends JFrame{
         searchAccountPanel = new SearchAccount();        
         tabPane.add("Add account",addAccountPanel);
         tabPane.add("Search account", searchAccountPanel);        
+        
+        final int nTabIndex = tabPane.indexOfTabComponent( tabPane );
+        final boolean bIsVisible = tabPane.isEnabledAt( 1);
+        if ( bIsVisible== false ) {
+            // Do stuff with myPanel
+            this.repaint();
+        }
         this.add(tabPane);       
     }//end konstruktor
     
