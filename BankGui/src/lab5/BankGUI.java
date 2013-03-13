@@ -9,9 +9,11 @@ public class BankGUI extends JFrame{
     private JTabbedPane tabPane;
     private AddAccount addAccountPanel;
     private SearchAccount searchAccountPanel;
+    private Login login;
     
     
-    public BankGUI() {        
+    public BankGUI() {  
+        login = new Login();
         tabPane = new JTabbedPane();
         addAccountPanel = new AddAccount();
         searchAccountPanel = new SearchAccount();        
