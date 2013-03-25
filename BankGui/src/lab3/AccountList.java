@@ -30,11 +30,12 @@ public class AccountList {
         return hittatAccount;        
     }//end  searchAccountInList  
     
-    public static void removeAccountFromList(BankAccount konto){
+    public static boolean removeAccountFromList(BankAccount konto){
+        boolean check = false;
         if(konto != null){
-            kontoLista.remove(konto);                 
-        }else{
-            JOptionPane.showMessageDialog(null, "Det gick inte att ta bort kontot");                    
+            kontoLista.remove(konto);     
+            check = true;
         }
+        return check;
     }
 }//end class
