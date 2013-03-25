@@ -53,7 +53,7 @@ public class BankAccount {
     @Override
     public String toString(){
         return "Innehavare: " + this.ownerName + "\n" + 
-                "Balance: " + this.balance + "\n";
+                "Saldo: " + this.balance + "\n";
     }//end toString
 }//end class
 

@@ -121,12 +121,19 @@ public class SearchAccount extends JPanel{
         @Override
         public void actionPerformed(ActionEvent e) {
             //Ger en dialogruta för att kunna ångra sig
+            String ownername = actualAccount.getOwnerName();
            int n = JOptionPane.showConfirmDialog(null,
-                    "Would you like to delete " + actualAccount.getOwnerName() +  " account?",
-                    "Remove this account",
+                    "Vill du ta bort " + ownername +  "'s konto?",
+                    "Ta bort det här kontot",
                     JOptionPane.YES_NO_OPTION); 
            if(n == JOptionPane.YES_OPTION){
-               AccountList.removeAccountFromList(actualAccount);
+               
+               boolean check = AccountList.removeAccountFromList(actualAccount);
+              if(check == false){
+                   JOptionPane.showMessageDialog(null, "Det gick inte att ta bort kontot");
+              }else{
+                  JOptionPane.showMessageDialog(null, "Du tog bort " + ownername + "'s konto");
+              }
                txfSearch.setText("");
                txfAccountName.setText("");
                txfAccountBalance.setText("");
